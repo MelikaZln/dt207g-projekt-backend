@@ -52,5 +52,30 @@ här skyddas en specifik API-rutt genom att tillämpa autentiseringen via authen
 
 function getMenu(menuTable){...} denna funktion används för att hämta alla menyalternativ från tabllerna.
 
+function loginUser() {...}  denna funktionhanterar inloggningsprocessen, . Den tar användarnamn och lösenord från ett HTML-formulär och skickar dem till en autentiseringsendpoint på servern för att få en JWT-token tillbaka.
+
+app.post("/api/bookings", (req, res) => {...});  Detta är en API-rutt för att hantera inkommande POST-begäranden för att boka bord. Den tar emot information om bokningen från begärandet, validerar den och lägger till den i databasen.
+
+app.get("/api/bookings", authenticateUser, (req, res) => {...}); Detta är en API-rutt för att hämta alla bokade bord från databasen.
+
+function bookTable(name, numberOfGuests, phone, date, time) {...}  Detta är en funktion som används på klientens sida för att skicka bokningsinformation till servern för att boka ett bord. 
+
+app.post("/api/menu/:category", authenticateUser, (req, res) => {...}); Detta är en API-rutt för att lägga till ett nytt menyalternativ i databasen.
+
+app.get("/api/menu/:category", (req, res) => {...}); Detta är en API-rutt för att hämta alla menyalternativ för en viss kategori från databasen. 
+
+app.delete("/api/menu/:category/:id", authenticateUser, (req, res) => {});}); Detta är en API-rutt för att ta bort ett specifikt menyalternativ från databasen.
+
+app.get("/api/menu/:category/:id", (req, res) => {...});  Detta är en API-rutt för att hämta ett specifikt menyalternativ från databasen baserat på dess ID och kategori.
+
+app.put("/api/menu/:category/:id", authenticateUser, (req, res) => {...}); Detta är en API-rutt för att uppdatera ett specifikt menyalternativ i databasen.
+
+app.listen(port, () => {...}); Här startas Express-server och lyssnar på den angivna porten.
+
+
+
+
+
+
 
 
