@@ -72,9 +72,20 @@ app.put("/api/menu/:category/:id", authenticateUser, (req, res) => {...}); Detta
 
 app.listen(port, () => {...}); Här startas Express-server och lyssnar på den angivna porten.
 
+Nästa fil jag har heter authRoutes.js, i denna kod skapas HTTP-server och kommuniceras med databasen.
 
+I början importeras alla moduler.
 
+router.post("/login", async (req, res) => {...}); Definierar en POST-rutt för att hantera användarautentisering. Använder bcrypt för att jämföra det angivna lösenordet med det hashade lösenordet i databasen och genererar en JWT-token om autentiseringen är framgångsrik.
 
+router.post("/menu", authenticateToken, (req, res) => {...}); Definierar en POST-rutt för att lägga till ett nytt menyalternativ. Använder en middleware-funktion authenticateToken för att verifiera giltigheten av den medföljande JWT-tokenen.
+
+router.get("/menu", (req, res) => {...});  Definierar en GET-rutt för att hämta alla menyalternativ från databasen.
+
+function authenticateToken(req, res, next) {...} En middleware-funktion för att autentisera JWT-token. Den kontrollerar om en giltig JWT-token finns i HTTP-headers och verifierar dess giltighet med hjälp av jsonwebtoken-paketet.
+
+module.exports= router; Exporterar routern för att användas i andra filer.
+Så man kan säga att denna route hanterar autentisering och databasåtkomst.
 
 
 
