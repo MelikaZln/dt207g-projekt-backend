@@ -15,7 +15,7 @@ const port = process.env.PORT ;
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static("public"));
+app.use(express.static("front-end"));
 
 // Autentisera användare
 function authenticateUser(req, res, next) {
