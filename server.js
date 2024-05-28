@@ -57,7 +57,7 @@ function loginUser() {
     const username = document.getElementById("loginUsername").value;
     const password = document.getElementById("loginPassword").value;
 
-    fetch('http://localhost:PORT/api/login', { // Här har vi port till backend
+    fetch('http://localhost:PORT/api/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
